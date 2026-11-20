@@ -1,6 +1,23 @@
 {
   "schema_version": 1,
   "title": "Metropolis Random Walks Escape Deep Basins Faster in Higher Dimensions",
+  "folio": {
+    "short_title": "Metropolis walks",
+    "featured_claim": "thm:true-scaling",
+    "blurb": "How long does a random walk take to escape a deep cubic basin? Matching bounds show how dimension changes the mean escape time. The proof compares an electrical network with a chain of shells, then constructs a flow through the basin.",
+    "figure": {
+      "path": "manuscript/folio-basin.webp",
+      "alt": "Square terraces around the origin show the nested shells of a two-dimensional cubic basin of depth four.",
+      "caption": "Fig. 1 · The two-dimensional cubic basin",
+      "page": 3
+    }
+  },
+  "authors": [
+    "Hansini Ramachandran",
+    "Bhaskar Krishnamachari"
+  ],
+  "citation_details": "11 November 2026",
+  "paper_overview": "The paper studies how dimension changes the time a Metropolis random walk takes to escape a deep cubic basin. It compares the full walk with a chain that averages over shells and proves matching asymptotic escape-time bounds.",
   "edition": "arXiv:2611.15086v1",
   "publication": "https://arxiv.org/abs/2611.15086v1",
   "revision": "Published v1, 11 November 2026",

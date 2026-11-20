@@ -4,14 +4,17 @@
   if (!inventory || !location.protocol.startsWith("http")) return;
   const local = ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
   const feed = (!local && inventory.dataset.feed) || "activity.json";
+  const github = new URL(feed, location.href).hostname === "api.github.com";
+  const interval = github ? 75000 : 5000;
   const rows = Array.from(inventory.querySelectorAll("li[data-claim]"));
   const phases = {writing:"Writing Lean proof", checking:"Lean check running",
     finished:"Lean check finished", failed:"Lean check failed", paused:"Proof work paused"};
   async function update() {
     try {
       const url = new URL(feed, location.href);
-      url.searchParams.set("poll", Math.floor(Date.now()/15000));
-      const res = await fetch(url, {cache:"no-store"});
+      url.searchParams.set("poll", Math.floor(Date.now()/interval));
+      const headers = github ? {Accept:"application/vnd.github.raw+json"} : {};
+      const res = await fetch(url, {cache:"no-store", headers});
       if (!res.ok) throw Error(res.status);
       const {runs} = await res.json();
       const now = Date.now()/1000;
@@ -36,7 +39,7 @@
         if (hadActivity || row.querySelector(".proof-target")) span.textContent = "Live activity unavailable";
       }
     } finally {
-      setTimeout(update, 15000);
+      setTimeout(update, interval);
     }
   }
   update();

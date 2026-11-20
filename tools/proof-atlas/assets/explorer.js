@@ -37,6 +37,8 @@ function fillList(selected) {
     if (!(c.reference+" "+c.title+" "+c.id).toLowerCase().includes(term)) continue;
     const a=link("",route(c.id),"claim-choice");
     a.append(el("small",c.reference),el("span",c.title));
+    if(c.verification.evidence) a.append(el("small","✓ Machine verified on GitHub","verified-badge"));
+    else a.append(el("small", [c.verification.label, c.verification.remote].filter(Boolean).join(" · ")));
     if(c.id===selected) a.setAttribute("aria-current","page");
     list.append(a);
   }
@@ -47,6 +49,14 @@ function relations(c, reverse=false) {
 }
 function proofView(c,view) {
   pane.append(el("small",c.reference),el("h2",c.title));
+  const v=c.verification;
+  if(v.evidence){
+    const proof=el("div",null,"lean-checks");
+    proof.append(link("✓ "+v.remote,v.url,"verified-badge"));
+    if(v.artifact) proof.append(link("GitHub artifact",v.artifact));
+    proof.append(link("Verification record · "+v.commit.slice(0,7),v.evidence));
+    pane.append(proof);
+  }
   pane.append(link("Show in dependency graph",route(c.id,"english",true),"graph-link"));
   const tabs=el("nav",null,"views");tabs.setAttribute("aria-label","Reading view");
   for(const [id,label] of Object.entries(views)){
@@ -75,6 +85,12 @@ function proofView(c,view) {
     if(c.structured){const note=el("details");note.open=!c.steps;note.append(el("summary","Pilot supplement"),el("pre",c.structured));pane.append(note);}
     if(!c.steps && !c.structured) pane.append(el("p",c.kind==="conjecture"?"This conjecture has no recorded proof.":"No structured argument has been imported yet."));
   } else {
+    const checks=el("div",null,"lean-checks");
+    checks.append(el("strong",c.verification.label));
+    if(c.audit_log) checks.append(link("Declaration and axiom audit",c.audit_log));
+    if(c.log) checks.append(link("Lean run log",c.log));
+    if(v.remote && !v.evidence) checks.append(link(v.remote,v.url));
+    pane.append(checks);
     pane.append(rich(c.scope || "No Lean formalization has been selected for this claim."));
     if(c.subproofs?.length){
       const list=el("ol");
@@ -86,15 +102,25 @@ function proofView(c,view) {
       pane.append(el("h3","Subproofs"),list);
     }
     for(const source of c.sources){pane.append(el("h3",source.path),el("pre",source.text));}
-    if(c.log) pane.append(link("Inspect Lean run log",c.log));
   }
 }
 function render(){
   const state=locationState();
+  const home=document.body.dataset.entry==="home" && !location.hash.startsWith("#/");
+  document.querySelector("#folio-home").hidden=!home;
+  document.querySelector(".workspace").hidden=home;
+  document.querySelector(".running").hidden=home;
+  const current=home?"home":state.graph?"graph":"reader";
+  for(const a of document.querySelectorAll("[data-nav]")){
+    if(a.dataset.nav===current) a.setAttribute("aria-current","page");
+    else a.removeAttribute("aria-current");
+  }
+  document.querySelector(".citation").open=false;
   if(graphState.resize){graphState.resize.disconnect();graphState.resize=null;}
   const hadNodeFocus=document.activeElement?.closest(".graph-node");
   document.body.classList.toggle("graph-mode",state.graph);
   document.querySelector("#graph-nav").href=route(state.id || data.focus || "", "english",true);
+  if(home){document.title=data.title+" | Proof Atlas";return;}
   fillList(state.id);pane.replaceChildren();
   const c=claims.get(state.id);
   if(!c){pane.append(el("h2",claims.size?"Claim not found":"No claims imported yet"));return;}
@@ -103,4 +129,6 @@ function render(){
   document.title=(state.graph?"Dependency graph":c.reference+" · "+c.title)+" | Proof Atlas";
 }
 document.querySelector("#search").addEventListener("input",()=>fillList(locationState().id));
+const summary=document.querySelector(".feature-summary");
+if(summary) summary.replaceChildren(...rich(summary.textContent).childNodes);
 window.addEventListener("hashchange",render);render();
