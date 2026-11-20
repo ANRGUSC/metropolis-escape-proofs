@@ -1,0 +1,4 @@
+Lean leanprover/lean4:v4.33.1
+Lake successfully built Metropolis.LowerPaper.
+Checked Metropolis.Lower.escape_lower against Metropolis.Lower.EscapeLowerStatement.
+'Metropolis.Lower.escape_lower' depends on axioms: [propext, Classical.choice, Quot.sound]

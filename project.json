@@ -48,12 +48,12 @@
   "work": {
     "lem:transport": {
       "status": "closed",
-      "summary": "For every positive dimension and every radius, the proof constructs currents on nearest-neighbor cube edges. At each vertex their divergence is the difference of the two uniform densities. Their total squared energy is at most n/(k+1)^n. The tuple coordinates translate the integer cube and enumerate each positive-direction edge once.",
+      "summary": "A nearest-neighbor current redistributes uniform mass to the next cube with bounded energy.",
       "step": "Checked the full paper statement against its independent Lean contract.",
       "scope": "For every positive dimension and every radius, the proof constructs currents on nearest-neighbor cube edges. At each vertex their divergence is the difference of the two uniform densities. Their total squared energy is at most n/(k+1)^n. The tuple coordinates translate the integer cube and enumerate each positive-direction edge once.",
       "next": "Complete.",
       "updated": "2026-11-20T17:01:33.036763+00:00",
-      "lean": "lean/Transport.lean",
+      "lean": "lean/Metropolis/TransportProduct.lean",
       "run_log": "evidence/transport-cube-checked.txt",
       "checked_inputs": {
         "lean/AuditTransport.lean": "ef180771dd6a6de6131ee889e8c013075178814348c829af663f6b52cf2c341b",
@@ -108,7 +108,7 @@
     "thm:asymptotic": {
       "status": "closed",
       "updated": "2026-11-20T17:10:57.994796+00:00",
-      "summary": "For each integer dimension at least one and fixed 0 < p < 1, the expected escape time is the tail sum of the killed shell chain starting at zero. The proof uses its exact finite-sum formula and bounds a polynomially weighted geometric series to obtain the two-sided Big Theta asymptotic in the paper.",
+      "summary": "The quotient escape time is of order alpha^N / N^(D-1).",
       "scope": "For each integer dimension at least one and fixed 0 < p < 1, the expected escape time is the tail sum of the killed shell chain starting at zero. The proof uses its exact finite-sum formula and bounds a polynomially weighted geometric series to obtain the two-sided Big Theta asymptotic in the paper.",
       "step": "Checked the full paper statement against its independent Lean contract.",
       "next": "Complete.",
@@ -158,12 +158,14 @@
         "expected": "Metropolis.Asymptotic.ShellScalingStatement",
         "declaration": "Metropolis.Asymptotic.shell_scaling",
         "correspondence": "For each integer dimension at least one and fixed 0 < p < 1, the expected escape time is the tail sum of the killed shell chain starting at zero. The proof uses its exact finite-sum formula and bounds a polynomially weighted geometric series to obtain the two-sided Big Theta asymptotic in the paper."
-      }
+      },
+      "lean": "lean/Metropolis/AsymptoticPaper.lean",
+      "sketch": "Bound the exact sum by a constant multiple of its final-scale term. The geometric weight dominates the polynomial growth of shell sizes. Keeping the last shell increment gives a lower bound of the same order."
     },
     "thm:exact-escape": {
       "status": "closed",
       "updated": "2026-11-20T17:10:58.010552+00:00",
-      "summary": "For each positive dimension, depth and 0 < p ≤ 1, the survival probabilities of the shell-averaged walk are summable. Their sum equals the manuscript’s displayed formula. In dimension one, the signed Metropolis walk has the same expected escape time.",
+      "summary": "An exact sum gives the mean escape time of the shell-averaged chain.",
       "scope": "For each positive dimension, depth and 0 < p ≤ 1, the survival probabilities of the shell-averaged walk are summable. Their sum equals the manuscript’s displayed formula. In dimension one, the signed Metropolis walk has the same expected escape time.",
       "step": "Checked the full paper statement against its independent Lean contract.",
       "next": "Complete.",
@@ -216,7 +218,79 @@
         "expected": "Metropolis.Shell.ExactEscapeStatement",
         "declaration": "Metropolis.Shell.paper_exact_escape",
         "correspondence": "For each positive dimension, depth and 0 < p ≤ 1, the survival probabilities of the shell-averaged walk are summable. Their sum equals the manuscript’s displayed formula. In dimension one, the signed Metropolis walk has the same expected escape time."
-      }
+      },
+      "lean": "lean/Metropolis/ShellRelease.lean",
+      "sketch": "Condition on the first step to relate neighboring shell times. Solve the resulting recurrence for the difference of successive times, then add those differences from the origin to the absorbing shell. In one dimension, reflecting the signed walk about the origin gives the same survival probabilities."
+    },
+    "thm:lower-bound": {
+      "status": "closed",
+      "updated": "2026-11-20T17:30:01.429320+00:00",
+      "summary": "Shorting shells gives a lower bound for the true escape time.",
+      "scope": "For every positive dimension and depth and every 0 < p < 1, the tail-sum expected exit time of the original Metropolis walk is bounded below by a positive dimension-dependent constant times (1/p)^N / N^(D−1). The formal proof bounds survival loss by stationary flux through the final cube boundary and uses c = 1/(4·2^(D−1)).",
+      "step": "Checked the full paper statement against its independent Lean contract.",
+      "next": "Complete.",
+      "subproofs": [
+        {
+          "title": "Enumerate the lattice edges across the last shell",
+          "status": "checked",
+          "declaration": "Metropolis.Lower.edge_of_crossing"
+        },
+        {
+          "title": "Bound loss of survival mass by the boundary flux",
+          "status": "checked",
+          "declaration": "Metropolis.Lower.stay_plus_flux"
+        },
+        {
+          "title": "Sum the survival lower bound to obtain a lifetime estimate",
+          "status": "checked",
+          "declaration": "Metropolis.Lower.quarter_flux"
+        }
+      ],
+      "lean_sources": [
+        "lean/AuditLower.lean",
+        "lean/Metropolis/Capacity.lean",
+        "lean/Metropolis/Green.lean",
+        "lean/Metropolis/Lattice.lean",
+        "lean/Metropolis/LowerCut.lean",
+        "lean/Metropolis/LowerFlux.lean",
+        "lean/Metropolis/LowerFluxDefs.lean",
+        "lean/Metropolis/LowerGeometry.lean",
+        "lean/Metropolis/LowerMean.lean",
+        "lean/Metropolis/LowerPaper.lean",
+        "lean/Metropolis/LowerResistance.lean",
+        "lean/Metropolis/LowerStatement.lean",
+        "lean/Metropolis/LowerSurvival.lean",
+        "lean/Metropolis/Walk.lean"
+      ],
+      "run_log": "evidence/lower-bound-checked.txt",
+      "checked_inputs": {
+        "lean/AuditLower.lean": "d017faeeac852df54fdbec744d5160b1d04ba58fc8f309079e0b2d8aa1ce2c94",
+        "lean/Metropolis/Capacity.lean": "ab1278bdbe42956e740e45b05e3b21327138e8d6d143b1ac7149d3faa3feb5b9",
+        "lean/Metropolis/Green.lean": "9d5fc40865f4991be10b448568ef64af21323e9fd8f7352e8c5e6f04805cc51d",
+        "lean/Metropolis/Lattice.lean": "e548afc3c7d0bb65c33a5a1d3ac409f068ecda19563867842f6aba4eae860033",
+        "lean/Metropolis/LowerCut.lean": "9a9c8cda844403236a055747e3f810050c20860be4ae9c83e7f2cabd77287416",
+        "lean/Metropolis/LowerFlux.lean": "39e2dea6dd61b0bb32bbd56b9f7bfa2e2ca49f0bf173c5f223fac0b12b3fbec7",
+        "lean/Metropolis/LowerFluxDefs.lean": "025914fd527aff5c813dbceca9c4ff579d0064f6e6653b19f8c583181e7ace6a",
+        "lean/Metropolis/LowerGeometry.lean": "3ea3c1f6d29b7553f7d524b13e5cd48f3a2afc85b871b1266756c6b61bd84c74",
+        "lean/Metropolis/LowerMean.lean": "cf50e894870c7cceddfc96d36f8b85d67a95e49e29f386ec2e86d8189e1d7bca",
+        "lean/Metropolis/LowerPaper.lean": "d299a306bc39b66f9c0d53eec5d790e8ffa1723833a9742354e2144a35932e1c",
+        "lean/Metropolis/LowerResistance.lean": "0d6771dbfb345faa7271ed88290e5a758a29cb9d843208fed309f07f1f8558e8",
+        "lean/Metropolis/LowerStatement.lean": "ced37e482f8318f346abb384f56e7768619e89dddd18752c3f2c2126e2dbe0c7",
+        "lean/Metropolis/LowerSurvival.lean": "0474ae1c592c7cdadf5c719cc7ed113e48e97023ac16fef2bec59e6f13b3a1f1",
+        "lean/Metropolis/Walk.lean": "862102c1d2605e08e41681aafb900d2a6efb08c953ee38d05ceeda380a9538a3",
+        "lean/lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+        "lean/lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      },
+      "closure": {
+        "package": "lean",
+        "audit": "evidence/lower-bound-audit.json",
+        "expected": "Metropolis.Lower.EscapeLowerStatement",
+        "declaration": "Metropolis.Lower.escape_lower",
+        "correspondence": "For every positive dimension and depth and every 0 < p < 1, the tail-sum expected exit time of the original Metropolis walk is bounded below by a positive dimension-dependent constant times (1/p)^N / N^(D−1). The formal proof bounds survival loss by stationary flux through the final cube boundary and uses c = 1/(4·2^(D−1))."
+      },
+      "lean": "lean/Metropolis/LowerPaper.lean",
+      "sketch": "The stationary flow across the final shell bounds how much probability can escape in one step. Summing the surviving mass gives the required lower bound on the true walk’s expected exit time."
     }
   },
   "hosting": {
@@ -224,6 +298,7 @@
     "visibility": "public",
     "site": "https://anrgusc.github.io/metropolis-escape-proofs/",
     "decision": "github",
-    "lean_ci": "enabled"
+    "lean_ci": "enabled",
+    "activity_url": "https://api.github.com/repos/ANRGUSC/metropolis-escape-proofs/contents/activity.json?ref=proof-atlas-activity"
   }
 }

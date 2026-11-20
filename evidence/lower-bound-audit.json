@@ -1,0 +1,35 @@
+{
+  "declaration": "Metropolis.Lower.escape_lower",
+  "contract": "AuditLower.lean",
+  "expected": "Metropolis.Lower.EscapeLowerStatement",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "Metropolis.LowerPaper"
+  ],
+  "input_scope": "module-closure",
+  "checked_inputs": {
+    "AuditLower.lean": "d017faeeac852df54fdbec744d5160b1d04ba58fc8f309079e0b2d8aa1ce2c94",
+    "Metropolis/Capacity.lean": "ab1278bdbe42956e740e45b05e3b21327138e8d6d143b1ac7149d3faa3feb5b9",
+    "Metropolis/Green.lean": "9d5fc40865f4991be10b448568ef64af21323e9fd8f7352e8c5e6f04805cc51d",
+    "Metropolis/Lattice.lean": "e548afc3c7d0bb65c33a5a1d3ac409f068ecda19563867842f6aba4eae860033",
+    "Metropolis/LowerCut.lean": "9a9c8cda844403236a055747e3f810050c20860be4ae9c83e7f2cabd77287416",
+    "Metropolis/LowerFlux.lean": "39e2dea6dd61b0bb32bbd56b9f7bfa2e2ca49f0bf173c5f223fac0b12b3fbec7",
+    "Metropolis/LowerFluxDefs.lean": "025914fd527aff5c813dbceca9c4ff579d0064f6e6653b19f8c583181e7ace6a",
+    "Metropolis/LowerGeometry.lean": "3ea3c1f6d29b7553f7d524b13e5cd48f3a2afc85b871b1266756c6b61bd84c74",
+    "Metropolis/LowerMean.lean": "cf50e894870c7cceddfc96d36f8b85d67a95e49e29f386ec2e86d8189e1d7bca",
+    "Metropolis/LowerPaper.lean": "d299a306bc39b66f9c0d53eec5d790e8ffa1723833a9742354e2144a35932e1c",
+    "Metropolis/LowerResistance.lean": "0d6771dbfb345faa7271ed88290e5a758a29cb9d843208fed309f07f1f8558e8",
+    "Metropolis/LowerStatement.lean": "ced37e482f8318f346abb384f56e7768619e89dddd18752c3f2c2126e2dbe0c7",
+    "Metropolis/LowerSurvival.lean": "0474ae1c592c7cdadf5c719cc7ed113e48e97023ac16fef2bec59e6f13b3a1f1",
+    "Metropolis/Walk.lean": "862102c1d2605e08e41681aafb900d2a6efb08c953ee38d05ceeda380a9538a3",
+    "lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+    "lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "lean_output": "'Metropolis.Lower.escape_lower' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

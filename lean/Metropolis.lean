@@ -1,3 +1,4 @@
-import Metropolis.TransportProduct
-import Metropolis.ShellRelease
 import Metropolis.AsymptoticPaper
+import Metropolis.LowerPaper
+import Metropolis.ShellRelease
+import Metropolis.TransportProduct
