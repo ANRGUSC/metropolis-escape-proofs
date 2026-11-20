@@ -10,7 +10,7 @@ import threading
 import time
 from uuid import uuid4
 
-from atlas import atomic
+from atlas import atomic, proof_work_description
 
 
 def gh(endpoint, body=None):
@@ -60,6 +60,8 @@ class Activity:
         self.project = json.loads((root / "project.json").read_bytes())
         self.claim = claim or self.project["focus"]
         claims = json.loads((root / "dist/inventory.json").read_bytes())
+        print("Authorized proof work: " + proof_work_description(self.project, claims), flush=True)
+        print(f"Claim: {self.claim} | Task: {task}", flush=True)
         if self.claim not in {c["id"] for c in claims}:
             raise ValueError(f"Unknown inventory claim {self.claim}")
         self.task = task

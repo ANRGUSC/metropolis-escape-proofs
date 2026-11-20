@@ -1,0 +1,26 @@
+{
+  "declaration": "Metropolis.Cube.transport_nested_cubes",
+  "contract": "AuditTransport.lean",
+  "expected": "TransportPaperStatement",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "Metropolis.TransportProduct"
+  ],
+  "input_scope": "module-closure",
+  "checked_inputs": {
+    "AuditTransport.lean": "ef180771dd6a6de6131ee889e8c013075178814348c829af663f6b52cf2c341b",
+    "Metropolis/TransportAxis.lean": "71bc4f7019c6c23d5c3f1af26015735108c93c6e6f3b8391f188338393aef939",
+    "Metropolis/TransportCube.lean": "82bb1b86eb1a15942ebb3081359799e57260ea6de57ada9134b5ec1f224090d7",
+    "Metropolis/TransportProduct.lean": "f83ed61a22791c2e06ce6ce8262d7f8ed56142fedc470aaa3a98ea247abbb827",
+    "Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
+    "lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+    "lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "lean_output": "'Metropolis.Cube.transport_nested_cubes' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

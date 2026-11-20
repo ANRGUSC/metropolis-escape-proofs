@@ -40,45 +40,77 @@
     "lemma",
     "proposition"
   ],
-  "focus": "lem:transport",
+  "proof_work": {
+    "mode": "paper"
+  },
+  "focus": "lem:hitting",
   "reader": "reader.json",
   "work": {
     "lem:transport": {
-      "status": "attempted",
-      "summary": "A nearest-neighbor current redistributes uniform mass to the next cube with bounded energy.",
-      "step": "Lean checked the one-dimensional construction for all radii, including both endpoints and radius zero.",
-      "scope": "One-dimensional case only. Lean scales the uniform masses and currents by the common positive denominator and checks the divergence identity and the denominator-cleared energy inequality. The higher-dimensional construction is open.",
-      "next": "Lift each interval current to a coordinate line and prove that the resulting currents have additive energy.",
-      "updated": "2026-11-20T06:18:04+00:00",
+      "status": "closed",
+      "summary": "For every positive dimension and every radius, the proof constructs currents on nearest-neighbor cube edges. At each vertex their divergence is the difference of the two uniform densities. Their total squared energy is at most n/(k+1)^n. The tuple coordinates translate the integer cube and enumerate each positive-direction edge once.",
+      "step": "Checked the full paper statement against its independent Lean contract.",
+      "scope": "For every positive dimension and every radius, the proof constructs currents on nearest-neighbor cube edges. At each vertex their divergence is the difference of the two uniform densities. Their total squared energy is at most n/(k+1)^n. The tuple coordinates translate the integer cube and enumerate each positive-direction edge once.",
+      "next": "Complete.",
+      "updated": "2026-11-20T17:01:33.036763+00:00",
       "lean": "lean/Transport.lean",
-      "run_log": "evidence/transport-audit.txt",
+      "run_log": "evidence/transport-cube-checked.txt",
       "checked_inputs": {
-        "lean/lake-manifest.json": "834f2a64f7562b48f1122c35727d7e143026808a98507da021449bcc99656e15",
-        "lean/lakefile.toml": "88d4a62377543c6ea1eb37f173dd2eef58f72267a3f82b0d0205650553804bd5",
-        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+        "lean/AuditTransport.lean": "ef180771dd6a6de6131ee889e8c013075178814348c829af663f6b52cf2c341b",
+        "lean/Metropolis/TransportAxis.lean": "71bc4f7019c6c23d5c3f1af26015735108c93c6e6f3b8391f188338393aef939",
+        "lean/Metropolis/TransportCube.lean": "82bb1b86eb1a15942ebb3081359799e57260ea6de57ada9134b5ec1f224090d7",
+        "lean/Metropolis/TransportProduct.lean": "f83ed61a22791c2e06ce6ce8262d7f8ed56142fedc470aaa3a98ea247abbb827",
         "lean/Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
-        "lean/TransportContract.lean": "703b0fd8f4b2f4756b62d48e5adc53613436559caf61332cc0fcc955e3932227"
+        "lean/lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+        "lean/lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
       },
       "subproofs": [
         {
-          "title": "One-dimensional divergence and energy bound for all radii",
+          "title": "Check one-dimensional balance and energy in integer units",
           "status": "checked",
           "declaration": "Metropolis.transport_one_dimension"
         },
         {
-          "title": "Extension to higher-dimensional cubes",
-          "status": "open"
+          "title": "Assemble the coordinate flows and prove divergence on the cube",
+          "status": "checked",
+          "declaration": "Metropolis.Cube.cube_balance"
+        },
+        {
+          "title": "Sum the squared current over every coordinate direction",
+          "status": "checked",
+          "declaration": "Metropolis.Cube.cube_energy"
         }
       ],
       "lean_sources": [
-        "lean/TransportContract.lean"
-      ]
+        "lean/AuditTransport.lean",
+        "lean/Metropolis/TransportAxis.lean",
+        "lean/Metropolis/TransportCube.lean",
+        "lean/Metropolis/TransportProduct.lean",
+        "lean/Transport.lean"
+      ],
+      "closure": {
+        "package": "lean",
+        "audit": "evidence/transport-cube-audit.json",
+        "expected": "TransportPaperStatement",
+        "declaration": "Metropolis.Cube.transport_nested_cubes",
+        "correspondence": "For every positive dimension and every radius, the proof constructs currents on nearest-neighbor cube edges. At each vertex their divergence is the difference of the two uniform densities. Their total squared energy is at most n/(k+1)^n. The tuple coordinates translate the integer cube and enumerate each positive-direction edge once."
+      }
+    },
+    "lem:hitting": {
+      "status": "attempted",
+      "updated": "2026-11-20T17:01:33.036763+00:00",
+      "summary": "Expected hitting time from a point is related to its capacity and a weighted sum of hitting probabilities.",
+      "step": "Lean checked detailed balance for the killed occupation kernel. The first-entrance decomposition and its connection to Dirichlet capacity are in progress.",
+      "next": "Identify the first-entrance and capacity factors for the lattice walk.",
+      "lean": "lean/Metropolis/Green.lean"
     }
   },
   "hosting": {
     "repository": "https://github.com/ANRGUSC/metropolis-escape-proofs",
     "visibility": "public",
     "site": "https://anrgusc.github.io/metropolis-escape-proofs/",
-    "decision": "github"
+    "decision": "github",
+    "lean_ci": "enabled"
   }
 }

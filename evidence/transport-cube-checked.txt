@@ -1,0 +1,4 @@
+Lean leanprover/lean4:v4.33.1
+Lake successfully built Metropolis.TransportProduct.
+Checked Metropolis.Cube.transport_nested_cubes against TransportPaperStatement.
+'Metropolis.Cube.transport_nested_cubes' depends on axioms: [propext, Classical.choice, Quot.sound]
