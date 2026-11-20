@@ -1,0 +1,32 @@
+{
+  "declaration": "Metropolis.Shell.paper_quotient_complete",
+  "contract": "AuditQuotientComplete.lean",
+  "expected": "Metropolis.Shell.FullQuotientStatement",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "Metropolis.ShellQuotientComplete"
+  ],
+  "input_scope": "module-closure",
+  "checked_inputs": {
+    "AuditQuotientComplete.lean": "a5dd413984d6bb165e3e3661d480496efa9d62d8069d46d7fb42c6585108f56e",
+    "Metropolis/Shell.lean": "f0710f1285877bc994fd3565c85eed28c796887a0e4e9a6424c231b8f7c5c282",
+    "Metropolis/ShellCrossings.lean": "f3803dc7c24a81334ae06948dcde1b67eef86da252a399a0895d9e6220e185d5",
+    "Metropolis/ShellGeometry.lean": "479b5baf4e51b71afa4762e680a305f3439782c3f5754508ced3574475c1458e",
+    "Metropolis/ShellLattice.lean": "4e509e4e709b85445758d4eddc6330a5acc344635cb58bb727eebc8b75d9606e",
+    "Metropolis/ShellPoisson.lean": "07478effa22a0362b39ca0b38aa6d5d697d675451933fde252fded2f3520aeb0",
+    "Metropolis/ShellQuotient.lean": "514f7c4c3ba4b2bf065149a08c01ff38c3a0a04e0d680081eb0f5a749b4196fc",
+    "Metropolis/ShellQuotientComplete.lean": "633f7a3447a0127d9dac04f8b66f94ad0ee4b2217c741c02d8bd37d31133de54",
+    "Metropolis/ShellQuotientCompleteContract.lean": "1fe077eeda1d0b8b2b8068e19898a08838cfe778c1790ffc637e3b21a5ede331",
+    "Metropolis/ShellQuotientContract.lean": "852235f7526a39938238de6acc2bf20143dcf274b5967a1c9a283e5a3af39d28",
+    "Metropolis/ShellQuotientRelease.lean": "ad030602aab1be9d6e87c04a021d841a135dc0161e752a705843894d6a9cbd5b",
+    "lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+    "lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "lean_output": "'Metropolis.Shell.paper_quotient_complete' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

@@ -1,0 +1,4 @@
+Lean leanprover/lean4:v4.33.1
+Lake successfully built Metropolis.Hitting.
+Checked Metropolis.Lattice.hitting_capacity against Metropolis.Lattice.HittingStatement.
+'Metropolis.Lattice.hitting_capacity' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -26,6 +26,9 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Build proof modules and type-check each claim against its statement
         run: python3 tools/proof-atlas/scripts/verify_ci.py "$RUNNER_TEMP/lean-verification.json"
+      - name: Build the complete Lean package, including the sharper lower bound
+        working-directory: lean
+        run: lake --no-cache build
       - uses: actions/upload-artifact@v4
         with:
           name: lean-verification-${{ github.sha }}-${{ github.run_attempt }}

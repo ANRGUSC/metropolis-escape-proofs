@@ -1,0 +1,40 @@
+{
+  "declaration": "Metropolis.Flow.face_resistance_upper",
+  "contract": "AuditFace.lean",
+  "expected": "Metropolis.Flow.FaceResistanceStatement",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "Metropolis.FlowDirichlet"
+  ],
+  "input_scope": "module-closure",
+  "checked_inputs": {
+    "AuditFace.lean": "fe36276c9b54e18f7e945facf22f0698a0dc27d5db21929d760e94bdecc9641a",
+    "Metropolis/AsymptoticEnergy.lean": "e43d37e6c54606250f533eeeb401e4caccd660b9e14fd4d909da1611fc56dc61",
+    "Metropolis/AsymptoticKernel.lean": "e5467587cb8b32380bf22ea042ce1e502f5c62ed255c595cf50aad07a378dff5",
+    "Metropolis/Capacity.lean": "ab1278bdbe42956e740e45b05e3b21327138e8d6d143b1ac7149d3faa3feb5b9",
+    "Metropolis/FlowBox.lean": "fddb1a7a9b9c6a87ae7b6985ee61ec8185816b2852d6533197b1f1e21c1834e5",
+    "Metropolis/FlowDirichlet.lean": "922c0675f83623844a42d378bfff371598f779a260dd1b1fc1a99b7291f7e14c",
+    "Metropolis/FlowDirichletStatement.lean": "5e13c3b059f4eda7441d1fd421872bbae6a95031a71d744f215abf86c770ef6b",
+    "Metropolis/FlowEdge.lean": "6b938aa073d7b47692b156fe43eaeb6ba74ab177c453627e3d1850af3250e9fd",
+    "Metropolis/FlowLayer.lean": "57745f72fa4d21184ece2182245d949df211c39a1c1473583c752cc8606465fc",
+    "Metropolis/FlowMean.lean": "09af7613bfe7ff4f5efe36829a00bf500f00d8719e71899c03dabd3a78cf10cc",
+    "Metropolis/FlowPyramid.lean": "1eb944cc59d7b475ffa4ec53c0f4abe8da7a40120b4f1ff92b0a19d307597aa0",
+    "Metropolis/FlowResistance.lean": "75276b06cfb53b70e8a12fb07ae4fad7f340632c8300c84da1b91df8fdfca315",
+    "Metropolis/FlowThomson.lean": "498694bf1187bb92174f0ca9c1fef996d6a764ba82644e1a64ae4864182689e5",
+    "Metropolis/FlowUpperStatement.lean": "00826d9d29102585ee9a50140428341860f29475166a3a45c2fb69a530f70efe",
+    "Metropolis/Lattice.lean": "e548afc3c7d0bb65c33a5a1d3ac409f068ecda19563867842f6aba4eae860033",
+    "Metropolis/TransportAxis.lean": "71bc4f7019c6c23d5c3f1af26015735108c93c6e6f3b8391f188338393aef939",
+    "Metropolis/TransportCube.lean": "82bb1b86eb1a15942ebb3081359799e57260ea6de57ada9134b5ec1f224090d7",
+    "Metropolis/TransportProduct.lean": "f83ed61a22791c2e06ce6ce8262d7f8ed56142fedc470aaa3a98ea247abbb827",
+    "Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
+    "lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+    "lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "lean_output": "'Metropolis.Flow.face_resistance_upper' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

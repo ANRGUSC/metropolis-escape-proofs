@@ -43,7 +43,7 @@
   "proof_work": {
     "mode": "paper"
   },
-  "focus": "lem:hitting",
+  "focus": null,
   "reader": "reader.json",
   "work": {
     "lem:transport": {
@@ -98,12 +98,91 @@
       }
     },
     "lem:hitting": {
-      "status": "attempted",
-      "updated": "2026-11-20T17:01:33.036763+00:00",
-      "summary": "Expected hitting time from a point is related to its capacity and a weighted sum of hitting probabilities.",
-      "step": "Lean checked detailed balance for the killed occupation kernel. The first-entrance decomposition and its connection to Dirichlet capacity are in progress.",
-      "next": "Identify the first-entrance and capacity factors for the lattice walk.",
-      "lean": "lean/Metropolis/Green.lean"
+      "status": "closed",
+      "updated": "2026-11-20T17:38:35.068330+00:00",
+      "summary": "Effective resistance bounds the mean hitting time using reversible mass.",
+      "step": "Checked the full paper statement against its independent Lean contract.",
+      "next": "Complete.",
+      "lean": "lean/Metropolis/Hitting.lean",
+      "scope": "For every finite nonempty lattice target excluding the starting point, and every dimension D ≥ 1 and 0 < p < 1, Lean identifies the true mean hitting time with reciprocal Dirichlet capacity times the reversible mass weighted by pre-absorption entrance probabilities. It proves finiteness of the total mass and mean, and both claimed resistance bounds.",
+      "subproofs": [
+        {
+          "title": "Use reversibility and first entrance to factor the killed occupation measure",
+          "status": "checked",
+          "declaration": "Metropolis.Green.weighted_lifetime"
+        },
+        {
+          "title": "Show strict escape probability before return",
+          "status": "checked",
+          "declaration": "Metropolis.Lattice.first_return_lt_one"
+        },
+        {
+          "title": "Evaluate the mean number of visits to the initial point",
+          "status": "checked",
+          "declaration": "Metropolis.Lattice.diagonal_visits"
+        },
+        {
+          "title": "Identify the equilibrium potential as the Dirichlet minimizer",
+          "status": "checked",
+          "declaration": "Metropolis.Lattice.capacity_of_harmonic"
+        }
+      ],
+      "lean_sources": [
+        "lean/AuditHitting.lean",
+        "lean/Metropolis/AsymptoticKernel.lean",
+        "lean/Metropolis/Capacity.lean",
+        "lean/Metropolis/Diagonal.lean",
+        "lean/Metropolis/Dirichlet.lean",
+        "lean/Metropolis/DirichletMinimum.lean",
+        "lean/Metropolis/DirichletParts.lean",
+        "lean/Metropolis/DirichletRows.lean",
+        "lean/Metropolis/EscapeGap.lean",
+        "lean/Metropolis/Green.lean",
+        "lean/Metropolis/HitPotential.lean",
+        "lean/Metropolis/Hitting.lean",
+        "lean/Metropolis/HittingAssembly.lean",
+        "lean/Metropolis/HittingStatement.lean",
+        "lean/Metropolis/Lattice.lean",
+        "lean/Metropolis/Mass.lean",
+        "lean/Metropolis/Potential.lean",
+        "lean/Metropolis/Reachability.lean",
+        "lean/Metropolis/Renewal.lean",
+        "lean/Metropolis/Walk.lean"
+      ],
+      "run_log": "evidence/hitting-capacity-checked.txt",
+      "checked_inputs": {
+        "lean/AuditHitting.lean": "1b4cc85931eeb31961d2417eeb611858986274d9920c76e4fc5403d1ca3b5331",
+        "lean/Metropolis/AsymptoticKernel.lean": "e5467587cb8b32380bf22ea042ce1e502f5c62ed255c595cf50aad07a378dff5",
+        "lean/Metropolis/Capacity.lean": "ab1278bdbe42956e740e45b05e3b21327138e8d6d143b1ac7149d3faa3feb5b9",
+        "lean/Metropolis/Diagonal.lean": "79c08b4bc552267b9da517dd7f722767a90739c5f22684c87d26c92e18b68403",
+        "lean/Metropolis/Dirichlet.lean": "7806527230a1cb026348a59a158641201632add30f26fea10b359a416b71b816",
+        "lean/Metropolis/DirichletMinimum.lean": "4d6ce9ab1777adc7bdc875577c18afaf78468122daa9a3ed5839dc89bd8b12a5",
+        "lean/Metropolis/DirichletParts.lean": "f2a36ac7bf147582f46075c41c1b21172a48e1048973fad0e41e037efb566add",
+        "lean/Metropolis/DirichletRows.lean": "0bee968acab487ce445bc7bdae0e2d511e934e15fef543173c5e14ec8078630a",
+        "lean/Metropolis/EscapeGap.lean": "232b575ec2a8a7314e81c9c3ecf5a06dd82eec56a5cb4a00041b2ce704ca665e",
+        "lean/Metropolis/Green.lean": "9d5fc40865f4991be10b448568ef64af21323e9fd8f7352e8c5e6f04805cc51d",
+        "lean/Metropolis/HitPotential.lean": "5177194bcef0db580d10e190f2b1c64af69f188214522ee69ca8b999979a89fb",
+        "lean/Metropolis/Hitting.lean": "59f5225c9646d99408b6957f57a979e29204fef2895ad1ee6734d0cec40a704b",
+        "lean/Metropolis/HittingAssembly.lean": "30cfe82e23dc5b6fa6ba9d5d03947eb7ae8231e977b281aefde2d125c39cdbe2",
+        "lean/Metropolis/HittingStatement.lean": "9a9ca7c869b12154f8c70a0799471808b778d8837705e2f2b6d15d24c99adae9",
+        "lean/Metropolis/Lattice.lean": "e548afc3c7d0bb65c33a5a1d3ac409f068ecda19563867842f6aba4eae860033",
+        "lean/Metropolis/Mass.lean": "70ba9a46da3b701a49bc11b24a04ee74fd44d897333605bc8dae878c12deab94",
+        "lean/Metropolis/Potential.lean": "fb5089b2b6c859456e6b87c4eba022667478e2ba57b07b711d214e850692bec1",
+        "lean/Metropolis/Reachability.lean": "6166ecd214bde71adeaa0d6daa4bc1b678c146a82c9f5600aaea1246504ab9f9",
+        "lean/Metropolis/Renewal.lean": "4b6922bc13c6bc1b5d40b939d9a41d0a10dd4129b76f611f57f4148986dff462",
+        "lean/Metropolis/Walk.lean": "862102c1d2605e08e41681aafb900d2a6efb08c953ee38d05ceeda380a9538a3",
+        "lean/lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+        "lean/lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      },
+      "closure": {
+        "package": "lean",
+        "audit": "evidence/hitting-capacity-audit.json",
+        "expected": "Metropolis.Lattice.HittingStatement",
+        "declaration": "Metropolis.Lattice.hitting_capacity",
+        "correspondence": "For every finite nonempty lattice target excluding the starting point, and every dimension D ≥ 1 and 0 < p < 1, Lean identifies the true mean hitting time with reciprocal Dirichlet capacity times the reversible mass weighted by pre-absorption entrance probabilities. It proves finiteness of the total mass and mean, and both claimed resistance bounds."
+      },
+      "sketch": "Use reversibility to relate expected visits before absorption to the probability of reaching the starting point before the target. That probability minimizes the Dirichlet energy. Combining the two identities gives the formula and its mass bounds."
     },
     "thm:asymptotic": {
       "status": "closed",
@@ -290,7 +369,282 @@
         "correspondence": "For every positive dimension and depth and every 0 < p < 1, the tail-sum expected exit time of the original Metropolis walk is bounded below by a positive dimension-dependent constant times (1/p)^N / N^(D−1). The formal proof bounds survival loss by stationary flux through the final cube boundary and uses c = 1/(4·2^(D−1))."
       },
       "lean": "lean/Metropolis/LowerPaper.lean",
-      "sketch": "The stationary flow across the final shell bounds how much probability can escape in one step. Summing the surviving mass gives the required lower bound on the true walk’s expected exit time."
+      "sketch": "The stationary flow across the final shell bounds how much probability can escape in one step. Summing the surviving mass gives the lower bound on the true walk’s expected exit time. The package also checks the paper’s sharper constant by combining the last-shell resistance with the hitting-time identity."
+    },
+    "prop:resistance-upper": {
+      "status": "closed",
+      "updated": "2026-11-20T17:33:12.034491+00:00",
+      "summary": "A flow through expanding layers bounds the resistance to the target face.",
+      "scope": "In every positive dimension, for 0 < p < 1 there is a positive constant, independent of depth, giving the manuscript's upper bound on reciprocal Dirichlet capacity from the origin to the interior target face. The formal proof constructs a finitely supported lattice current, joins its forward and redistribution layers, and applies the energy bound to the full-space Dirichlet infimum.",
+      "step": "Checked the full paper statement against its independent Lean contract.",
+      "next": "Complete.",
+      "subproofs": [
+        {
+          "title": "Join the forward and transverse currents across all layers",
+          "status": "checked",
+          "declaration": "Metropolis.Flow.face_flow_bound"
+        },
+        {
+          "title": "Compare the energy of a test current with inverse Dirichlet capacity",
+          "status": "checked",
+          "declaration": "Metropolis.Flow.weak_thomson"
+        }
+      ],
+      "lean_sources": [
+        "lean/AuditFace.lean",
+        "lean/Metropolis/AsymptoticEnergy.lean",
+        "lean/Metropolis/AsymptoticKernel.lean",
+        "lean/Metropolis/Capacity.lean",
+        "lean/Metropolis/FlowBox.lean",
+        "lean/Metropolis/FlowDirichlet.lean",
+        "lean/Metropolis/FlowDirichletStatement.lean",
+        "lean/Metropolis/FlowEdge.lean",
+        "lean/Metropolis/FlowLayer.lean",
+        "lean/Metropolis/FlowMean.lean",
+        "lean/Metropolis/FlowPyramid.lean",
+        "lean/Metropolis/FlowResistance.lean",
+        "lean/Metropolis/FlowThomson.lean",
+        "lean/Metropolis/FlowUpperStatement.lean",
+        "lean/Metropolis/Lattice.lean",
+        "lean/Metropolis/TransportAxis.lean",
+        "lean/Metropolis/TransportCube.lean",
+        "lean/Metropolis/TransportProduct.lean",
+        "lean/Transport.lean"
+      ],
+      "run_log": "evidence/face-upper-checked.txt",
+      "checked_inputs": {
+        "lean/AuditFace.lean": "fe36276c9b54e18f7e945facf22f0698a0dc27d5db21929d760e94bdecc9641a",
+        "lean/Metropolis/AsymptoticEnergy.lean": "e43d37e6c54606250f533eeeb401e4caccd660b9e14fd4d909da1611fc56dc61",
+        "lean/Metropolis/AsymptoticKernel.lean": "e5467587cb8b32380bf22ea042ce1e502f5c62ed255c595cf50aad07a378dff5",
+        "lean/Metropolis/Capacity.lean": "ab1278bdbe42956e740e45b05e3b21327138e8d6d143b1ac7149d3faa3feb5b9",
+        "lean/Metropolis/FlowBox.lean": "fddb1a7a9b9c6a87ae7b6985ee61ec8185816b2852d6533197b1f1e21c1834e5",
+        "lean/Metropolis/FlowDirichlet.lean": "922c0675f83623844a42d378bfff371598f779a260dd1b1fc1a99b7291f7e14c",
+        "lean/Metropolis/FlowDirichletStatement.lean": "5e13c3b059f4eda7441d1fd421872bbae6a95031a71d744f215abf86c770ef6b",
+        "lean/Metropolis/FlowEdge.lean": "6b938aa073d7b47692b156fe43eaeb6ba74ab177c453627e3d1850af3250e9fd",
+        "lean/Metropolis/FlowLayer.lean": "57745f72fa4d21184ece2182245d949df211c39a1c1473583c752cc8606465fc",
+        "lean/Metropolis/FlowMean.lean": "09af7613bfe7ff4f5efe36829a00bf500f00d8719e71899c03dabd3a78cf10cc",
+        "lean/Metropolis/FlowPyramid.lean": "1eb944cc59d7b475ffa4ec53c0f4abe8da7a40120b4f1ff92b0a19d307597aa0",
+        "lean/Metropolis/FlowResistance.lean": "75276b06cfb53b70e8a12fb07ae4fad7f340632c8300c84da1b91df8fdfca315",
+        "lean/Metropolis/FlowThomson.lean": "498694bf1187bb92174f0ca9c1fef996d6a764ba82644e1a64ae4864182689e5",
+        "lean/Metropolis/FlowUpperStatement.lean": "00826d9d29102585ee9a50140428341860f29475166a3a45c2fb69a530f70efe",
+        "lean/Metropolis/Lattice.lean": "e548afc3c7d0bb65c33a5a1d3ac409f068ecda19563867842f6aba4eae860033",
+        "lean/Metropolis/TransportAxis.lean": "71bc4f7019c6c23d5c3f1af26015735108c93c6e6f3b8391f188338393aef939",
+        "lean/Metropolis/TransportCube.lean": "82bb1b86eb1a15942ebb3081359799e57260ea6de57ada9134b5ec1f224090d7",
+        "lean/Metropolis/TransportProduct.lean": "f83ed61a22791c2e06ce6ce8262d7f8ed56142fedc470aaa3a98ea247abbb827",
+        "lean/Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
+        "lean/lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+        "lean/lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      },
+      "closure": {
+        "package": "lean",
+        "audit": "evidence/face-upper-audit.json",
+        "expected": "Metropolis.Flow.FaceResistanceStatement",
+        "declaration": "Metropolis.Flow.face_resistance_upper",
+        "correspondence": "In every positive dimension, for 0 < p < 1 there is a positive constant, independent of depth, giving the manuscript's upper bound on reciprocal Dirichlet capacity from the origin to the interior target face. The formal proof constructs a finitely supported lattice current, joins its forward and redistribution layers, and applies the energy bound to the full-space Dirichlet infimum."
+      },
+      "lean": "lean/Metropolis/FlowDirichlet.lean",
+      "sketch": "Send a unit current forward through expanding layers and redistribute it within each layer using cube transport. Sum the two energy costs. Thomson’s inequality turns that energy bound into a bound on the face resistance."
+    },
+    "prop:quotient": {
+      "status": "closed",
+      "updated": "2026-11-20T17:33:12.055981+00:00",
+      "summary": "Shorting each shell gives the shell-averaged birth-death chain.",
+      "scope": "In the reflecting cube, the true kernel satisfies detailed balance at every pair of sites. The proof identifies every oriented outward crossing with exactly one face proposal, sums its conductance and the mass of each shell, and obtains the two interior transition probabilities and the origin row.",
+      "step": "Checked the full paper statement against its independent Lean contract.",
+      "next": "Complete.",
+      "subproofs": [
+        {
+          "title": "Count lattice sites in the shell",
+          "status": "checked",
+          "declaration": "Metropolis.Shell.card_shellSites"
+        },
+        {
+          "title": "Match reflecting-box crossing pairs with face proposals",
+          "status": "checked",
+          "declaration": "Metropolis.Shell.actualLink_eq"
+        },
+        {
+          "title": "Divide the shorted conductances by shell masses",
+          "status": "checked",
+          "declaration": "Metropolis.Shell.paper_quotient"
+        }
+      ],
+      "lean_sources": [
+        "lean/AuditQuotientComplete.lean",
+        "lean/Metropolis/Shell.lean",
+        "lean/Metropolis/ShellCrossings.lean",
+        "lean/Metropolis/ShellGeometry.lean",
+        "lean/Metropolis/ShellLattice.lean",
+        "lean/Metropolis/ShellPoisson.lean",
+        "lean/Metropolis/ShellQuotient.lean",
+        "lean/Metropolis/ShellQuotientComplete.lean",
+        "lean/Metropolis/ShellQuotientCompleteContract.lean",
+        "lean/Metropolis/ShellQuotientContract.lean",
+        "lean/Metropolis/ShellQuotientRelease.lean"
+      ],
+      "run_log": "evidence/quotient-complete-checked.txt",
+      "checked_inputs": {
+        "lean/AuditQuotientComplete.lean": "a5dd413984d6bb165e3e3661d480496efa9d62d8069d46d7fb42c6585108f56e",
+        "lean/Metropolis/Shell.lean": "f0710f1285877bc994fd3565c85eed28c796887a0e4e9a6424c231b8f7c5c282",
+        "lean/Metropolis/ShellCrossings.lean": "f3803dc7c24a81334ae06948dcde1b67eef86da252a399a0895d9e6220e185d5",
+        "lean/Metropolis/ShellGeometry.lean": "479b5baf4e51b71afa4762e680a305f3439782c3f5754508ced3574475c1458e",
+        "lean/Metropolis/ShellLattice.lean": "4e509e4e709b85445758d4eddc6330a5acc344635cb58bb727eebc8b75d9606e",
+        "lean/Metropolis/ShellPoisson.lean": "07478effa22a0362b39ca0b38aa6d5d697d675451933fde252fded2f3520aeb0",
+        "lean/Metropolis/ShellQuotient.lean": "514f7c4c3ba4b2bf065149a08c01ff38c3a0a04e0d680081eb0f5a749b4196fc",
+        "lean/Metropolis/ShellQuotientComplete.lean": "633f7a3447a0127d9dac04f8b66f94ad0ee4b2217c741c02d8bd37d31133de54",
+        "lean/Metropolis/ShellQuotientCompleteContract.lean": "1fe077eeda1d0b8b2b8068e19898a08838cfe778c1790ffc637e3b21a5ede331",
+        "lean/Metropolis/ShellQuotientContract.lean": "852235f7526a39938238de6acc2bf20143dcf274b5967a1c9a283e5a3af39d28",
+        "lean/Metropolis/ShellQuotientRelease.lean": "ad030602aab1be9d6e87c04a021d841a135dc0161e752a705843894d6a9cbd5b",
+        "lean/lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+        "lean/lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      },
+      "closure": {
+        "package": "lean",
+        "audit": "evidence/quotient-complete-audit.json",
+        "expected": "Metropolis.Shell.FullQuotientStatement",
+        "declaration": "Metropolis.Shell.paper_quotient_complete",
+        "correspondence": "In the reflecting cube, the true kernel satisfies detailed balance at every pair of sites. The proof identifies every oriented outward crossing with exactly one face proposal, sums its conductance and the mass of each shell, and obtains the two interior transition probabilities and the origin row."
+      },
+      "lean": "lean/Metropolis/ShellQuotientComplete.lean",
+      "sketch": "Each move between adjacent shells crosses a face of the inner cube. Count those moves once, add their conductances, and divide by the stationary mass of the source shell to obtain its transition probability."
+    },
+    "thm:true-scaling": {
+      "status": "closed",
+      "updated": "2026-11-20T17:38:35.091474+00:00",
+      "summary": "Matching bounds give the order of the true escape time.",
+      "scope": "For the original Metropolis lattice walk started at the origin, in each positive dimension at fixed 0 < p < 1, the expected time to hit the depth-N shell is finite at every positive depth and has the paper's two-sided Big Theta asymptotic as N tends to infinity.",
+      "step": "Checked the full paper statement against its independent Lean contract.",
+      "next": "Complete.",
+      "subproofs": [
+        {
+          "title": "Control the mean with a finite-mass resistance estimate",
+          "status": "checked",
+          "declaration": "Metropolis.Lattice.meanHitting_le_mass_resistance"
+        },
+        {
+          "title": "Use the lower estimate for the true stopped walk",
+          "status": "checked",
+          "declaration": "Metropolis.Lower.escape_lower"
+        },
+        {
+          "title": "Turn the lower and upper estimates into an asymptotic equivalence of orders",
+          "status": "checked",
+          "declaration": "Metropolis.Flow.theta_of_enclosure"
+        }
+      ],
+      "lean_sources": [
+        "lean/AuditTrueScaling.lean",
+        "lean/Metropolis/AsymptoticEnergy.lean",
+        "lean/Metropolis/AsymptoticKernel.lean",
+        "lean/Metropolis/Capacity.lean",
+        "lean/Metropolis/Diagonal.lean",
+        "lean/Metropolis/Dirichlet.lean",
+        "lean/Metropolis/DirichletMinimum.lean",
+        "lean/Metropolis/DirichletParts.lean",
+        "lean/Metropolis/DirichletRows.lean",
+        "lean/Metropolis/EscapeGap.lean",
+        "lean/Metropolis/FlowBox.lean",
+        "lean/Metropolis/FlowEdge.lean",
+        "lean/Metropolis/FlowLayer.lean",
+        "lean/Metropolis/FlowMean.lean",
+        "lean/Metropolis/FlowPyramid.lean",
+        "lean/Metropolis/FlowResistance.lean",
+        "lean/Metropolis/FlowScaling.lean",
+        "lean/Metropolis/FlowScalingBounds.lean",
+        "lean/Metropolis/FlowScalingRelease.lean",
+        "lean/Metropolis/FlowScalingStatement.lean",
+        "lean/Metropolis/FlowShell.lean",
+        "lean/Metropolis/FlowThomson.lean",
+        "lean/Metropolis/FlowUpperStatement.lean",
+        "lean/Metropolis/Green.lean",
+        "lean/Metropolis/HitPotential.lean",
+        "lean/Metropolis/Hitting.lean",
+        "lean/Metropolis/HittingAssembly.lean",
+        "lean/Metropolis/HittingStatement.lean",
+        "lean/Metropolis/Lattice.lean",
+        "lean/Metropolis/LowerCut.lean",
+        "lean/Metropolis/LowerFlux.lean",
+        "lean/Metropolis/LowerFluxDefs.lean",
+        "lean/Metropolis/LowerGeometry.lean",
+        "lean/Metropolis/LowerMean.lean",
+        "lean/Metropolis/LowerPaper.lean",
+        "lean/Metropolis/LowerResistance.lean",
+        "lean/Metropolis/LowerStatement.lean",
+        "lean/Metropolis/LowerSurvival.lean",
+        "lean/Metropolis/Mass.lean",
+        "lean/Metropolis/Potential.lean",
+        "lean/Metropolis/Reachability.lean",
+        "lean/Metropolis/Renewal.lean",
+        "lean/Metropolis/TransportAxis.lean",
+        "lean/Metropolis/TransportCube.lean",
+        "lean/Metropolis/TransportProduct.lean",
+        "lean/Metropolis/Walk.lean",
+        "lean/Transport.lean"
+      ],
+      "run_log": "evidence/true-scaling-checked.txt",
+      "checked_inputs": {
+        "lean/AuditTrueScaling.lean": "4108ca83842fd85fbcaa425e048331595a968585f88c9879b28c95f3c0fbcf81",
+        "lean/Metropolis/AsymptoticEnergy.lean": "e43d37e6c54606250f533eeeb401e4caccd660b9e14fd4d909da1611fc56dc61",
+        "lean/Metropolis/AsymptoticKernel.lean": "e5467587cb8b32380bf22ea042ce1e502f5c62ed255c595cf50aad07a378dff5",
+        "lean/Metropolis/Capacity.lean": "ab1278bdbe42956e740e45b05e3b21327138e8d6d143b1ac7149d3faa3feb5b9",
+        "lean/Metropolis/Diagonal.lean": "79c08b4bc552267b9da517dd7f722767a90739c5f22684c87d26c92e18b68403",
+        "lean/Metropolis/Dirichlet.lean": "7806527230a1cb026348a59a158641201632add30f26fea10b359a416b71b816",
+        "lean/Metropolis/DirichletMinimum.lean": "4d6ce9ab1777adc7bdc875577c18afaf78468122daa9a3ed5839dc89bd8b12a5",
+        "lean/Metropolis/DirichletParts.lean": "f2a36ac7bf147582f46075c41c1b21172a48e1048973fad0e41e037efb566add",
+        "lean/Metropolis/DirichletRows.lean": "0bee968acab487ce445bc7bdae0e2d511e934e15fef543173c5e14ec8078630a",
+        "lean/Metropolis/EscapeGap.lean": "232b575ec2a8a7314e81c9c3ecf5a06dd82eec56a5cb4a00041b2ce704ca665e",
+        "lean/Metropolis/FlowBox.lean": "fddb1a7a9b9c6a87ae7b6985ee61ec8185816b2852d6533197b1f1e21c1834e5",
+        "lean/Metropolis/FlowEdge.lean": "6b938aa073d7b47692b156fe43eaeb6ba74ab177c453627e3d1850af3250e9fd",
+        "lean/Metropolis/FlowLayer.lean": "57745f72fa4d21184ece2182245d949df211c39a1c1473583c752cc8606465fc",
+        "lean/Metropolis/FlowMean.lean": "09af7613bfe7ff4f5efe36829a00bf500f00d8719e71899c03dabd3a78cf10cc",
+        "lean/Metropolis/FlowPyramid.lean": "1eb944cc59d7b475ffa4ec53c0f4abe8da7a40120b4f1ff92b0a19d307597aa0",
+        "lean/Metropolis/FlowResistance.lean": "75276b06cfb53b70e8a12fb07ae4fad7f340632c8300c84da1b91df8fdfca315",
+        "lean/Metropolis/FlowScaling.lean": "1fbe8050e651345efa2885a7a85a918d62326c75c12ff878125cd1b6aa52e7fb",
+        "lean/Metropolis/FlowScalingBounds.lean": "b1856d04dd4767565756b4275f8c4e3a86ac8615ef372d5da4866b0a07ef2157",
+        "lean/Metropolis/FlowScalingRelease.lean": "6c1657ced91b02c8fb80c729116d90264933b3bbfdd16ed273a5392a3178ee7b",
+        "lean/Metropolis/FlowScalingStatement.lean": "40a8392e130eefe0e2b200138c87ace8679d320b58a68189e84e93114b1654e8",
+        "lean/Metropolis/FlowShell.lean": "228d50317c6589bd35ff4f3f7327ccec73cd06e5d76872481b9440d7acd97c21",
+        "lean/Metropolis/FlowThomson.lean": "498694bf1187bb92174f0ca9c1fef996d6a764ba82644e1a64ae4864182689e5",
+        "lean/Metropolis/FlowUpperStatement.lean": "00826d9d29102585ee9a50140428341860f29475166a3a45c2fb69a530f70efe",
+        "lean/Metropolis/Green.lean": "9d5fc40865f4991be10b448568ef64af21323e9fd8f7352e8c5e6f04805cc51d",
+        "lean/Metropolis/HitPotential.lean": "5177194bcef0db580d10e190f2b1c64af69f188214522ee69ca8b999979a89fb",
+        "lean/Metropolis/Hitting.lean": "59f5225c9646d99408b6957f57a979e29204fef2895ad1ee6734d0cec40a704b",
+        "lean/Metropolis/HittingAssembly.lean": "30cfe82e23dc5b6fa6ba9d5d03947eb7ae8231e977b281aefde2d125c39cdbe2",
+        "lean/Metropolis/HittingStatement.lean": "9a9ca7c869b12154f8c70a0799471808b778d8837705e2f2b6d15d24c99adae9",
+        "lean/Metropolis/Lattice.lean": "e548afc3c7d0bb65c33a5a1d3ac409f068ecda19563867842f6aba4eae860033",
+        "lean/Metropolis/LowerCut.lean": "9a9c8cda844403236a055747e3f810050c20860be4ae9c83e7f2cabd77287416",
+        "lean/Metropolis/LowerFlux.lean": "39e2dea6dd61b0bb32bbd56b9f7bfa2e2ca49f0bf173c5f223fac0b12b3fbec7",
+        "lean/Metropolis/LowerFluxDefs.lean": "025914fd527aff5c813dbceca9c4ff579d0064f6e6653b19f8c583181e7ace6a",
+        "lean/Metropolis/LowerGeometry.lean": "3ea3c1f6d29b7553f7d524b13e5cd48f3a2afc85b871b1266756c6b61bd84c74",
+        "lean/Metropolis/LowerMean.lean": "cf50e894870c7cceddfc96d36f8b85d67a95e49e29f386ec2e86d8189e1d7bca",
+        "lean/Metropolis/LowerPaper.lean": "d299a306bc39b66f9c0d53eec5d790e8ffa1723833a9742354e2144a35932e1c",
+        "lean/Metropolis/LowerResistance.lean": "0d6771dbfb345faa7271ed88290e5a758a29cb9d843208fed309f07f1f8558e8",
+        "lean/Metropolis/LowerStatement.lean": "ced37e482f8318f346abb384f56e7768619e89dddd18752c3f2c2126e2dbe0c7",
+        "lean/Metropolis/LowerSurvival.lean": "0474ae1c592c7cdadf5c719cc7ed113e48e97023ac16fef2bec59e6f13b3a1f1",
+        "lean/Metropolis/Mass.lean": "70ba9a46da3b701a49bc11b24a04ee74fd44d897333605bc8dae878c12deab94",
+        "lean/Metropolis/Potential.lean": "fb5089b2b6c859456e6b87c4eba022667478e2ba57b07b711d214e850692bec1",
+        "lean/Metropolis/Reachability.lean": "6166ecd214bde71adeaa0d6daa4bc1b678c146a82c9f5600aaea1246504ab9f9",
+        "lean/Metropolis/Renewal.lean": "4b6922bc13c6bc1b5d40b939d9a41d0a10dd4129b76f611f57f4148986dff462",
+        "lean/Metropolis/TransportAxis.lean": "71bc4f7019c6c23d5c3f1af26015735108c93c6e6f3b8391f188338393aef939",
+        "lean/Metropolis/TransportCube.lean": "82bb1b86eb1a15942ebb3081359799e57260ea6de57ada9134b5ec1f224090d7",
+        "lean/Metropolis/TransportProduct.lean": "f83ed61a22791c2e06ce6ce8262d7f8ed56142fedc470aaa3a98ea247abbb827",
+        "lean/Metropolis/Walk.lean": "862102c1d2605e08e41681aafb900d2a6efb08c953ee38d05ceeda380a9538a3",
+        "lean/Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
+        "lean/lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+        "lean/lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      },
+      "closure": {
+        "package": "lean",
+        "audit": "evidence/true-scaling-audit.json",
+        "expected": "Metropolis.Flow.TrueScalingStatement",
+        "declaration": "Metropolis.Flow.true_chain_scaling",
+        "correspondence": "For the original Metropolis lattice walk started at the origin, in each positive dimension at fixed 0 < p < 1, the expected time to hit the depth-N shell is finite at every positive depth and has the paper's two-sided Big Theta asymptotic as N tends to infinity."
+      },
+      "lean": "lean/Metropolis/FlowScalingRelease.lean",
+      "sketch": "The lower bound applies to the true walk. For the upper bound, the explicit current reaches a face of the target shell, and the hitting-time inequality bounds the mean by total mass times the shell resistance."
     }
   },
   "hosting": {

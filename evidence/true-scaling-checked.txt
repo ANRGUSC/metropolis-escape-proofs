@@ -1,0 +1,4 @@
+Lean leanprover/lean4:v4.33.1
+Lake successfully built Metropolis.FlowScalingRelease.
+Checked Metropolis.Flow.true_chain_scaling against Metropolis.Flow.TrueScalingStatement.
+'Metropolis.Flow.true_chain_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]

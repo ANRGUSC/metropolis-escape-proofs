@@ -1,0 +1,4 @@
+Lean leanprover/lean4:v4.33.1
+Lake successfully built Metropolis.FlowDirichlet.
+Checked Metropolis.Flow.face_resistance_upper against Metropolis.Flow.FaceResistanceStatement.
+'Metropolis.Flow.face_resistance_upper' depends on axioms: [propext, Classical.choice, Quot.sound]

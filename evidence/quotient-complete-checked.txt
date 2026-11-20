@@ -1,0 +1,4 @@
+Lean leanprover/lean4:v4.33.1
+Lake successfully built Metropolis.ShellQuotientComplete.
+Checked Metropolis.Shell.paper_quotient_complete against Metropolis.Shell.FullQuotientStatement.
+'Metropolis.Shell.paper_quotient_complete' depends on axioms: [propext, Classical.choice, Quot.sound]

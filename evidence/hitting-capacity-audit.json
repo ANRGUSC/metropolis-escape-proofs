@@ -1,0 +1,41 @@
+{
+  "declaration": "Metropolis.Lattice.hitting_capacity",
+  "contract": "AuditHitting.lean",
+  "expected": "Metropolis.Lattice.HittingStatement",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "Metropolis.Hitting"
+  ],
+  "input_scope": "module-closure",
+  "checked_inputs": {
+    "AuditHitting.lean": "1b4cc85931eeb31961d2417eeb611858986274d9920c76e4fc5403d1ca3b5331",
+    "Metropolis/AsymptoticKernel.lean": "e5467587cb8b32380bf22ea042ce1e502f5c62ed255c595cf50aad07a378dff5",
+    "Metropolis/Capacity.lean": "ab1278bdbe42956e740e45b05e3b21327138e8d6d143b1ac7149d3faa3feb5b9",
+    "Metropolis/Diagonal.lean": "79c08b4bc552267b9da517dd7f722767a90739c5f22684c87d26c92e18b68403",
+    "Metropolis/Dirichlet.lean": "7806527230a1cb026348a59a158641201632add30f26fea10b359a416b71b816",
+    "Metropolis/DirichletMinimum.lean": "4d6ce9ab1777adc7bdc875577c18afaf78468122daa9a3ed5839dc89bd8b12a5",
+    "Metropolis/DirichletParts.lean": "f2a36ac7bf147582f46075c41c1b21172a48e1048973fad0e41e037efb566add",
+    "Metropolis/DirichletRows.lean": "0bee968acab487ce445bc7bdae0e2d511e934e15fef543173c5e14ec8078630a",
+    "Metropolis/EscapeGap.lean": "232b575ec2a8a7314e81c9c3ecf5a06dd82eec56a5cb4a00041b2ce704ca665e",
+    "Metropolis/Green.lean": "9d5fc40865f4991be10b448568ef64af21323e9fd8f7352e8c5e6f04805cc51d",
+    "Metropolis/HitPotential.lean": "5177194bcef0db580d10e190f2b1c64af69f188214522ee69ca8b999979a89fb",
+    "Metropolis/Hitting.lean": "59f5225c9646d99408b6957f57a979e29204fef2895ad1ee6734d0cec40a704b",
+    "Metropolis/HittingAssembly.lean": "30cfe82e23dc5b6fa6ba9d5d03947eb7ae8231e977b281aefde2d125c39cdbe2",
+    "Metropolis/HittingStatement.lean": "9a9ca7c869b12154f8c70a0799471808b778d8837705e2f2b6d15d24c99adae9",
+    "Metropolis/Lattice.lean": "e548afc3c7d0bb65c33a5a1d3ac409f068ecda19563867842f6aba4eae860033",
+    "Metropolis/Mass.lean": "70ba9a46da3b701a49bc11b24a04ee74fd44d897333605bc8dae878c12deab94",
+    "Metropolis/Potential.lean": "fb5089b2b6c859456e6b87c4eba022667478e2ba57b07b711d214e850692bec1",
+    "Metropolis/Reachability.lean": "6166ecd214bde71adeaa0d6daa4bc1b678c146a82c9f5600aaea1246504ab9f9",
+    "Metropolis/Renewal.lean": "4b6922bc13c6bc1b5d40b939d9a41d0a10dd4129b76f611f57f4148986dff462",
+    "Metropolis/Walk.lean": "862102c1d2605e08e41681aafb900d2a6efb08c953ee38d05ceeda380a9538a3",
+    "lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+    "lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "lean_output": "'Metropolis.Lattice.hitting_capacity' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

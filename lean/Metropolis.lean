@@ -1,4 +1,9 @@
 import Metropolis.AsymptoticPaper
+import Metropolis.FlowDirichlet
+import Metropolis.FlowScalingRelease
+import Metropolis.Hitting
 import Metropolis.LowerPaper
+import Metropolis.LowerSharp
+import Metropolis.ShellQuotientComplete
 import Metropolis.ShellRelease
 import Metropolis.TransportProduct
