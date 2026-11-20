@@ -34,12 +34,13 @@
       "next": "Lift each interval current to a coordinate line and prove that the resulting currents have additive energy.",
       "updated": "2026-11-20T06:18:04+00:00",
       "lean": "lean/Transport.lean",
-      "run_log": "evidence/transport-1d.txt",
+      "run_log": "evidence/transport-audit.txt",
       "checked_inputs": {
-        "lean/Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
-        "lean/lakefile.toml": "88d4a62377543c6ea1eb37f173dd2eef58f72267a3f82b0d0205650553804bd5",
         "lean/lake-manifest.json": "834f2a64f7562b48f1122c35727d7e143026808a98507da021449bcc99656e15",
-        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+        "lean/lakefile.toml": "88d4a62377543c6ea1eb37f173dd2eef58f72267a3f82b0d0205650553804bd5",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+        "lean/Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
+        "lean/TransportContract.lean": "703b0fd8f4b2f4756b62d48e5adc53613436559caf61332cc0fcc955e3932227"
       },
       "subproofs": [
         {
@@ -51,12 +52,16 @@
           "title": "Extension to higher-dimensional cubes",
           "status": "open"
         }
+      ],
+      "lean_sources": [
+        "lean/TransportContract.lean"
       ]
     }
   },
   "hosting": {
     "repository": "https://github.com/ANRGUSC/metropolis-escape-proofs",
     "visibility": "public",
-    "site": "https://anrgusc.github.io/metropolis-escape-proofs/"
+    "site": "https://anrgusc.github.io/metropolis-escape-proofs/",
+    "decision": "github"
   }
 }

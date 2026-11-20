@@ -1,0 +1,32 @@
+Public copy of the successful check. The local toolchain directory is represented by <installed-toolchain>.
+Lean toolchain: leanprover/lean4:v4.33.1
+$ <installed-toolchain>\bin\lean.EXE --version
+Lean (version 4.33.1, x86_64-w64-windows-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+$ <installed-toolchain>\bin\lake.exe --version
+Lake version 5.0.0-src+819816b (Lean version 4.33.1)
+$ <installed-toolchain>\bin\lake.exe --no-cache build
+ℹ [2/3] Built Transport (20s)
+info: Transport.lean:71:0: 'Metropolis.transport_one_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3 jobs).
+Lake build completed.
+
+Independent declaration audit
+{
+  "declaration": "Metropolis.transport_one_dimension",
+  "contract": "TransportContract.lean",
+  "expected": "OneDimensionalTransportClaim",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "checked_inputs": {
+    "lake-manifest.json": "834f2a64f7562b48f1122c35727d7e143026808a98507da021449bcc99656e15",
+    "lakefile.toml": "88d4a62377543c6ea1eb37f173dd2eef58f72267a3f82b0d0205650553804bd5",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+    "Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
+    "TransportContract.lean": "703b0fd8f4b2f4756b62d48e5adc53613436559caf61332cc0fcc955e3932227"
+  },
+  "lean_output": "'Metropolis.transport_one_dimension' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}
