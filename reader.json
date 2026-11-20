@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "claims": {
+    "thm:exact-escape": {
+      "reference": "Theorem 1",
+      "page": 4,
+      "summary": "An exact sum gives the mean escape time of the shell-averaged chain."
+    },
+    "prop:quotient": {
+      "reference": "Proposition 1",
+      "page": 5,
+      "summary": "Shorting each shell gives the shell-averaged birth-death chain."
+    },
+    "thm:asymptotic": {
+      "reference": "Theorem 2",
+      "page": 6,
+      "summary": "The quotient escape time is of order alpha^N / N^(D-1)."
+    },
+    "lem:hitting": {
+      "reference": "Lemma 1",
+      "page": 6,
+      "summary": "Effective resistance bounds the mean hitting time using reversible mass."
+    },
+    "thm:lower-bound": {
+      "reference": "Theorem 3",
+      "page": 7,
+      "summary": "Shorting shells gives a lower bound for the true escape time."
+    },
+    "lem:transport": {
+      "reference": "Lemma 2",
+      "page": 9,
+      "summary": "A nearest-neighbor current redistributes uniform mass to the next cube with bounded energy.",
+      "origin": "Structured reading of the published proof, prepared for this pilot.",
+      "lamport": "transport.md",
+      "sketch": "In one dimension, the flow on each edge equals the excess mass to its left. Its successive differences give the prescribed mass change. In higher dimensions the paper applies the same construction on coordinate lines and adds the energy over disjoint edge directions."
+    },
+    "prop:resistance-upper": {
+      "reference": "Proposition 2",
+      "page": 10,
+      "summary": "A flow through expanding layers bounds the resistance to the target face."
+    },
+    "thm:true-scaling": {
+      "reference": "Theorem 4",
+      "page": 10,
+      "summary": "Matching bounds give the order of the true escape time."
+    }
+  },
+  "dependencies": [
+    {
+      "claim": "prop:resistance-upper",
+      "prerequisite": "lem:transport",
+      "reason": "The lateral flow on each layer uses the mass redistribution and its energy bound."
+    },
+    {
+      "claim": "thm:lower-bound",
+      "prerequisite": "prop:quotient",
+      "reason": "Short shells to the quotient network before comparing resistances."
+    },
+    {
+      "claim": "thm:lower-bound",
+      "prerequisite": "lem:hitting",
+      "reason": "The lower hitting-time inequality turns the resistance estimate into a time bound."
+    },
+    {
+      "claim": "thm:true-scaling",
+      "prerequisite": "thm:lower-bound",
+      "reason": "Supplies the lower half of the asymptotic estimate."
+    },
+    {
+      "claim": "thm:true-scaling",
+      "prerequisite": "lem:hitting",
+      "reason": "Converts resistance to an upper bound on hitting time."
+    },
+    {
+      "claim": "thm:true-scaling",
+      "prerequisite": "prop:resistance-upper",
+      "reason": "Bounds resistance to the target face for the upper half of the estimate."
+    },
+    {
+      "claim": "thm:asymptotic",
+      "prerequisite": "thm:exact-escape",
+      "reason": "The proof estimates the shell increments and their sum in the exact escape-time formula."
+    }
+  ],
+  "macros": {
+    "\\E": "\\mathbb{E}",
+    "\\Z": "\\mathbb{Z}",
+    "\\norm": "\\lVert #1\\rVert",
+    "\\Energy": "\\mathcal{E}"
+  }
+}

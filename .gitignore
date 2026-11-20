@@ -1,0 +1,6 @@
+dist/
+.lake/
+.proof-atlas-activity/
+.proof-atlas-tools/
+__pycache__/
+evidence/*.log

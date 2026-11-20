@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "title": "Metropolis Random Walks Escape Deep Basins Faster in Higher Dimensions",
+  "edition": "arXiv:2611.15086v1",
+  "publication": "https://arxiv.org/abs/2611.15086v1",
+  "revision": "Published v1, 11 November 2026",
+  "source_archive": {
+    "path": "manuscript/submission.tar.gz",
+    "sha256": "26c1865bb91cb36a37ac3a8e818f429dfa9ffd452b80f3fdb1c097a3ebdd00e1"
+  },
+  "tex": [
+    {
+      "path": "manuscript/paper.tex",
+      "sha256": "adb5c04295041b6621eef0f4cc7f9804d35cc65adddf35734c75e8696a4881db"
+    }
+  ],
+  "pdf": {
+    "path": "manuscript/paper.pdf",
+    "sha256": "6f68a822a4c95de445010a8590f39f052e49271e9c0f2ded6dc25b967ce251b4"
+  },
+  "environments": [
+    "theorem",
+    "lemma",
+    "proposition"
+  ],
+  "focus": "lem:transport",
+  "reader": "reader.json",
+  "work": {
+    "lem:transport": {
+      "status": "attempted",
+      "summary": "A nearest-neighbor current redistributes uniform mass to the next cube with bounded energy.",
+      "step": "Lean checked the one-dimensional construction for all radii, including both endpoints and radius zero.",
+      "scope": "One-dimensional case only. Lean scales the uniform masses and currents by the common positive denominator and checks the divergence identity and the denominator-cleared energy inequality. The higher-dimensional construction is open.",
+      "next": "Lift each interval current to a coordinate line and prove that the resulting currents have additive energy.",
+      "updated": "2026-11-20T06:18:04+00:00",
+      "lean": "lean/Transport.lean",
+      "run_log": "evidence/transport-1d.txt",
+      "checked_inputs": {
+        "lean/Transport.lean": "0888eeb2c2cdf8b657b4c9ce9ee49be507c777c933a60004d91664d2be260fc6",
+        "lean/lakefile.toml": "88d4a62377543c6ea1eb37f173dd2eef58f72267a3f82b0d0205650553804bd5",
+        "lean/lake-manifest.json": "834f2a64f7562b48f1122c35727d7e143026808a98507da021449bcc99656e15",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      },
+      "subproofs": [
+        {
+          "title": "One-dimensional divergence and energy bound for all radii",
+          "status": "checked",
+          "declaration": "Metropolis.transport_one_dimension"
+        },
+        {
+          "title": "Extension to higher-dimensional cubes",
+          "status": "open"
+        }
+      ]
+    }
+  },
+  "hosting": {
+    "repository": "https://github.com/ANRGUSC/metropolis-escape-proofs",
+    "visibility": "public",
+    "site": "https://anrgusc.github.io/metropolis-escape-proofs/"
+  }
+}

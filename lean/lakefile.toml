@@ -1,0 +1,6 @@
+name = "metropolisTransport"
+version = "0.1.0"
+defaultTargets = ["Transport"]
+
+[[lean_lib]]
+name = "Transport"
