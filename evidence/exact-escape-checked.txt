@@ -1,0 +1,4 @@
+Lean leanprover/lean4:v4.33.1
+Lake successfully built Metropolis.ShellRelease.
+Checked Metropolis.Shell.paper_exact_escape against Metropolis.Shell.ExactEscapeStatement.
+'Metropolis.Shell.paper_exact_escape' depends on axioms: [propext, Classical.choice, Quot.sound]

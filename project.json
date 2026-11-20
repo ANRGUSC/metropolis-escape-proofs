@@ -104,6 +104,119 @@
       "step": "Lean checked detailed balance for the killed occupation kernel. The first-entrance decomposition and its connection to Dirichlet capacity are in progress.",
       "next": "Identify the first-entrance and capacity factors for the lattice walk.",
       "lean": "lean/Metropolis/Green.lean"
+    },
+    "thm:asymptotic": {
+      "status": "closed",
+      "updated": "2026-11-20T17:10:57.994796+00:00",
+      "summary": "For each integer dimension at least one and fixed 0 < p < 1, the expected escape time is the tail sum of the killed shell chain starting at zero. The proof uses its exact finite-sum formula and bounds a polynomially weighted geometric series to obtain the two-sided Big Theta asymptotic in the paper.",
+      "scope": "For each integer dimension at least one and fixed 0 < p < 1, the expected escape time is the tail sum of the killed shell chain starting at zero. The proof uses its exact finite-sum formula and bounds a polynomially weighted geometric series to obtain the two-sided Big Theta asymptotic in the paper.",
+      "step": "Checked the full paper statement against its independent Lean contract.",
+      "next": "Complete.",
+      "subproofs": [
+        {
+          "title": "Bound the growth of the endpoint-dominated sum",
+          "status": "checked",
+          "declaration": "Metropolis.Asymptotic.sum_steps_bounds"
+        },
+        {
+          "title": "Apply both asymptotic inequalities to the displayed shell formula",
+          "status": "checked",
+          "declaration": "Metropolis.Asymptotic.exactSum_theta"
+        }
+      ],
+      "lean_sources": [
+        "lean/AuditScaling.lean",
+        "lean/Metropolis/Asymptotic.lean",
+        "lean/Metropolis/AsymptoticKernel.lean",
+        "lean/Metropolis/AsymptoticPaper.lean",
+        "lean/Metropolis/AsymptoticStatement.lean",
+        "lean/Metropolis/Shell.lean",
+        "lean/Metropolis/ShellAbsorption.lean",
+        "lean/Metropolis/ShellExpectation.lean",
+        "lean/Metropolis/ShellPoisson.lean",
+        "lean/Metropolis/ShellRows.lean"
+      ],
+      "run_log": "evidence/asymptotic-scaling-checked.txt",
+      "checked_inputs": {
+        "lean/AuditScaling.lean": "15a56a7be18925a32d68dbf2deab22a31a218a598a41c4578954c7d6f4828bdc",
+        "lean/Metropolis/Asymptotic.lean": "dda7cec4290c64fe07e262bee45adf483b651e22885ea26ab28ef640ae278a48",
+        "lean/Metropolis/AsymptoticKernel.lean": "e5467587cb8b32380bf22ea042ce1e502f5c62ed255c595cf50aad07a378dff5",
+        "lean/Metropolis/AsymptoticPaper.lean": "3347fe07f3565803b7184f3249ee5a5da1b3b833e3118bb36322f571e57da8d2",
+        "lean/Metropolis/AsymptoticStatement.lean": "0abf15dbedec4effa1bc1b2993421df4aba3e28775e51af86011b129d6051d28",
+        "lean/Metropolis/Shell.lean": "f0710f1285877bc994fd3565c85eed28c796887a0e4e9a6424c231b8f7c5c282",
+        "lean/Metropolis/ShellAbsorption.lean": "be1107bc5a1600a4e16194c6fed5434536ef667350633829d54b1dddaa8e629c",
+        "lean/Metropolis/ShellExpectation.lean": "df439fbb0e1402a14515e24d17e63284034cbd618d2db3b742149a9b7af9e676",
+        "lean/Metropolis/ShellPoisson.lean": "07478effa22a0362b39ca0b38aa6d5d697d675451933fde252fded2f3520aeb0",
+        "lean/Metropolis/ShellRows.lean": "2f8a87d0eca2cef2d8b20b9f5632f9ca42819b5fa537182d64c9b15e8c3c9015",
+        "lean/lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+        "lean/lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      },
+      "closure": {
+        "package": "lean",
+        "audit": "evidence/asymptotic-scaling-audit.json",
+        "expected": "Metropolis.Asymptotic.ShellScalingStatement",
+        "declaration": "Metropolis.Asymptotic.shell_scaling",
+        "correspondence": "For each integer dimension at least one and fixed 0 < p < 1, the expected escape time is the tail sum of the killed shell chain starting at zero. The proof uses its exact finite-sum formula and bounds a polynomially weighted geometric series to obtain the two-sided Big Theta asymptotic in the paper."
+      }
+    },
+    "thm:exact-escape": {
+      "status": "closed",
+      "updated": "2026-11-20T17:10:58.010552+00:00",
+      "summary": "For each positive dimension, depth and 0 < p ≤ 1, the survival probabilities of the shell-averaged walk are summable. Their sum equals the manuscript’s displayed formula. In dimension one, the signed Metropolis walk has the same expected escape time.",
+      "scope": "For each positive dimension, depth and 0 < p ≤ 1, the survival probabilities of the shell-averaged walk are summable. Their sum equals the manuscript’s displayed formula. In dimension one, the signed Metropolis walk has the same expected escape time.",
+      "step": "Checked the full paper statement against its independent Lean contract.",
+      "next": "Complete.",
+      "subproofs": [
+        {
+          "title": "Solve the flux equations and sum the shell increments",
+          "status": "checked",
+          "declaration": "Metropolis.Shell.exactSum_of_flux"
+        },
+        {
+          "title": "Identify the solution with the actual survival-tail mean",
+          "status": "checked",
+          "declaration": "Metropolis.Shell.exact_escape"
+        },
+        {
+          "title": "Identify the signed one-dimensional walk",
+          "status": "checked",
+          "declaration": "Metropolis.Shell.line_exact_escape"
+        }
+      ],
+      "lean_sources": [
+        "lean/AuditExact.lean",
+        "lean/Metropolis/Shell.lean",
+        "lean/Metropolis/ShellAbsorption.lean",
+        "lean/Metropolis/ShellContract.lean",
+        "lean/Metropolis/ShellExpectation.lean",
+        "lean/Metropolis/ShellLine.lean",
+        "lean/Metropolis/ShellPoisson.lean",
+        "lean/Metropolis/ShellRelease.lean",
+        "lean/Metropolis/ShellRows.lean"
+      ],
+      "run_log": "evidence/exact-escape-checked.txt",
+      "checked_inputs": {
+        "lean/AuditExact.lean": "bea46fe6652b9de99f84db280a0b4fc400d0312f286b11127c81ac10df42415b",
+        "lean/Metropolis/Shell.lean": "f0710f1285877bc994fd3565c85eed28c796887a0e4e9a6424c231b8f7c5c282",
+        "lean/Metropolis/ShellAbsorption.lean": "be1107bc5a1600a4e16194c6fed5434536ef667350633829d54b1dddaa8e629c",
+        "lean/Metropolis/ShellContract.lean": "5a6d369ca5db872346841b41041330b10b7238179962b180cc66f1b0864cf037",
+        "lean/Metropolis/ShellExpectation.lean": "df439fbb0e1402a14515e24d17e63284034cbd618d2db3b742149a9b7af9e676",
+        "lean/Metropolis/ShellLine.lean": "2ec46afcad37bc3115e5f8006ecdd189f63d028deef54af19a457864c429e269",
+        "lean/Metropolis/ShellPoisson.lean": "07478effa22a0362b39ca0b38aa6d5d697d675451933fde252fded2f3520aeb0",
+        "lean/Metropolis/ShellRelease.lean": "9218ba2bb258d4f911b23694b8601a61f5040e27ba14c4fb8d248c41dcf9317a",
+        "lean/Metropolis/ShellRows.lean": "2f8a87d0eca2cef2d8b20b9f5632f9ca42819b5fa537182d64c9b15e8c3c9015",
+        "lean/lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+        "lean/lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+        "lean/lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+      },
+      "closure": {
+        "package": "lean",
+        "audit": "evidence/exact-escape-audit.json",
+        "expected": "Metropolis.Shell.ExactEscapeStatement",
+        "declaration": "Metropolis.Shell.paper_exact_escape",
+        "correspondence": "For each positive dimension, depth and 0 < p ≤ 1, the survival probabilities of the shell-averaged walk are summable. Their sum equals the manuscript’s displayed formula. In dimension one, the signed Metropolis walk has the same expected escape time."
+      }
     }
   },
   "hosting": {

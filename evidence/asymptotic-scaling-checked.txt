@@ -1,0 +1,4 @@
+Lean leanprover/lean4:v4.33.1
+Lake successfully built Metropolis.AsymptoticPaper.
+Checked Metropolis.Asymptotic.shell_scaling against Metropolis.Asymptotic.ShellScalingStatement.
+'Metropolis.Asymptotic.shell_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]

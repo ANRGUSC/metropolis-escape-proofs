@@ -1,0 +1,30 @@
+{
+  "declaration": "Metropolis.Shell.paper_exact_escape",
+  "contract": "AuditExact.lean",
+  "expected": "Metropolis.Shell.ExactEscapeStatement",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "Metropolis.ShellRelease"
+  ],
+  "input_scope": "module-closure",
+  "checked_inputs": {
+    "AuditExact.lean": "bea46fe6652b9de99f84db280a0b4fc400d0312f286b11127c81ac10df42415b",
+    "Metropolis/Shell.lean": "f0710f1285877bc994fd3565c85eed28c796887a0e4e9a6424c231b8f7c5c282",
+    "Metropolis/ShellAbsorption.lean": "be1107bc5a1600a4e16194c6fed5434536ef667350633829d54b1dddaa8e629c",
+    "Metropolis/ShellContract.lean": "5a6d369ca5db872346841b41041330b10b7238179962b180cc66f1b0864cf037",
+    "Metropolis/ShellExpectation.lean": "df439fbb0e1402a14515e24d17e63284034cbd618d2db3b742149a9b7af9e676",
+    "Metropolis/ShellLine.lean": "2ec46afcad37bc3115e5f8006ecdd189f63d028deef54af19a457864c429e269",
+    "Metropolis/ShellPoisson.lean": "07478effa22a0362b39ca0b38aa6d5d697d675451933fde252fded2f3520aeb0",
+    "Metropolis/ShellRelease.lean": "9218ba2bb258d4f911b23694b8601a61f5040e27ba14c4fb8d248c41dcf9317a",
+    "Metropolis/ShellRows.lean": "2f8a87d0eca2cef2d8b20b9f5632f9ca42819b5fa537182d64c9b15e8c3c9015",
+    "lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+    "lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "lean_output": "'Metropolis.Shell.paper_exact_escape' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

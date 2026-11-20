@@ -1,0 +1,31 @@
+{
+  "declaration": "Metropolis.Asymptotic.shell_scaling",
+  "contract": "AuditScaling.lean",
+  "expected": "Metropolis.Asymptotic.ShellScalingStatement",
+  "toolchain": "leanprover/lean4:v4.33.1",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "Metropolis.AsymptoticPaper"
+  ],
+  "input_scope": "module-closure",
+  "checked_inputs": {
+    "AuditScaling.lean": "15a56a7be18925a32d68dbf2deab22a31a218a598a41c4578954c7d6f4828bdc",
+    "Metropolis/Asymptotic.lean": "dda7cec4290c64fe07e262bee45adf483b651e22885ea26ab28ef640ae278a48",
+    "Metropolis/AsymptoticKernel.lean": "e5467587cb8b32380bf22ea042ce1e502f5c62ed255c595cf50aad07a378dff5",
+    "Metropolis/AsymptoticPaper.lean": "3347fe07f3565803b7184f3249ee5a5da1b3b833e3118bb36322f571e57da8d2",
+    "Metropolis/AsymptoticStatement.lean": "0abf15dbedec4effa1bc1b2993421df4aba3e28775e51af86011b129d6051d28",
+    "Metropolis/Shell.lean": "f0710f1285877bc994fd3565c85eed28c796887a0e4e9a6424c231b8f7c5c282",
+    "Metropolis/ShellAbsorption.lean": "be1107bc5a1600a4e16194c6fed5434536ef667350633829d54b1dddaa8e629c",
+    "Metropolis/ShellExpectation.lean": "df439fbb0e1402a14515e24d17e63284034cbd618d2db3b742149a9b7af9e676",
+    "Metropolis/ShellPoisson.lean": "07478effa22a0362b39ca0b38aa6d5d697d675451933fde252fded2f3520aeb0",
+    "Metropolis/ShellRows.lean": "2f8a87d0eca2cef2d8b20b9f5632f9ca42819b5fa537182d64c9b15e8c3c9015",
+    "lake-manifest.json": "58e677ffaea679f0f1f4a191d0909642ac4ad6f4077b1eaa56bf9883a21340b8",
+    "lakefile.toml": "09c79b4b0a5dc617952fd8eb35d953887e89c13a8aba1c42b94d7797ba918f23",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+  },
+  "lean_output": "'Metropolis.Asymptotic.shell_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}
